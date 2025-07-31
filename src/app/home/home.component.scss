@@ -1,0 +1,19 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   height: calc(100vh - 56px);
+  text-align: center;
+  padding: 16px;
+}
+
+.welcome-section h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #999;
+}
