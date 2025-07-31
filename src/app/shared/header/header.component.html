@@ -1,1 +1,27 @@
-<p>header works!</p>
+<header role="banner" class="header">
+  <div class="logo">SCCON</div>
+  <div class="spacer"></div>
+
+  <nav role="navigation" aria-label="Menu principal" class="menu-desktop">
+    <div class="menu-item home-item">
+      <button class="btn" routerLink="/">Home</button>
+    </div>
+
+    <div class="menu-item menu-item-dropdown">
+      <button
+        class="btn btn-menu"
+        aria-haspopup="true"
+        aria-expanded="false"
+        (click)="toggleMenu()"
+      >
+        Endereços
+      </button>
+
+      @if (menuAberto) {
+        <div class="menu-dropdown">
+          <button class="btn-menu-item" routerLink="/cep/search">Buscar Endereços</button>
+        </div>
+      }
+    </div>
+  </nav>
+</header>
