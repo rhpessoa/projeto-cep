@@ -1,1 +1,30 @@
-<p>busca works!</p>
+<section class="address-search-form">
+  <form (submit)="onSubmit()" [formGroup]="form" novalidate>
+    <label for="cep" class="visually-hidden">CEP</label>
+    <div class="input-wrapper">
+      <input
+        id="cep"
+        type="text"
+        formControlName="cep"
+        mask="00000-000"
+        placeholder="Buscar por CEP"
+        [class.error]="
+          (cep?.invalid && (cep?.touched || submitted))
+        "
+        class="cep-input"
+      />
+
+      @if (cep?.invalid && (cep?.touched || submitted)) {
+        <p class="error-message">Por favor, insira um CEP válido com 8 dígitos.</p>
+      }
+    </div>
+
+    <button type="submit" [disabled]="form.invalid" class="search-button">
+      Buscar
+    </button>
+  </form>
+</section>
+
+  @if (mostrarResultado) {
+    <app-address-result></app-address-result>
+  }
