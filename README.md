@@ -1,59 +1,46 @@
-# ProjetoCep
+# Projeto CEP 📍
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.3.
+Este é um projeto em Angular desenvolvido para realizar buscas de endereços via CEP. O intuito dele é mostrar a proficiência para um teste técnico de Front-end
 
-## Development server
+## 🧱 Tecnologias Utilizadas
 
-To start a local development server, run:
+- [Angular CLI](https://github.com/angular/angular-cli) versão 20.1.3.
+- [Angular Material](https://material.angular.io/)
+- [Sass](https://sass-lang.com/)
+- [ngx-mask](https://github.com/JsDaddy/ngx-mask)
+- RxJS
+- TypeScript
+
+## ✨ Funcionalidades
+
+- ✅ Busca de endereço por CEP
+- ✅ Máscara de input para validação do CEP
+- ✅ Loader animado entre navegação de páginas
+- ✅ Estilização com Sass e variáveis reutilizáveis
+- ✅ Design responsivo com Angular Material
+- ✅ Componentização com boas práticas
+- ✅ Lazy loading de módulos para otimização de performance  
+
+## Servidor de desenvolvimento
+
+Para iniciar um servidor de desenvolvimento local, execute:
 
 ```bash
 ng serve
 ```
+## 🚀 Deploy
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+O projeto está publicado na Vercel e pode ser acessado pelo link abaixo:
 
-## Code scaffolding
+🔗 [Projeto](https://testetecnicoam53.vercel.app/).
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
+O deploy foi feito utilizando a Vercel, que detecta automaticamente projetos Angular e realiza o build e deploy contínuo a partir da branch principal.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🧠 Desafios Enfrentados
 
-```bash
-ng generate --help
-```
+- Criação de um sistema modular com lazy loading para otimizar a aplicação.
+- Prazo curto para finalização do desafio.
+- Utilizar novos recursos obrigatórios do angular 18+.
+- Organizar e estruturar os componentes nas novas versões do angular.
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
