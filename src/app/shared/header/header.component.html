@@ -13,7 +13,7 @@
       <button
         class="btn btn-menu"
         aria-haspopup="true"
-        aria-expanded="false"
+        [attr.aria-expanded]="menuAberto"
         (click)="toggleMenu()"
       >
         Endereços
@@ -26,4 +26,28 @@
       }
     </div>
   </nav>
+
+  <button
+    class="btn btn-hamburguer"
+    aria-label="Abrir menu"
+    [attr.aria-expanded]="menuMobileAberto"
+    (click)="toggleMenuMobile()"
+  >
+    &#9776;
+  </button>
+
+  @if (menuMobileAberto) {
+    <nav role="navigation" aria-label="Menu móvel" class="menu-mobile">
+      <button class="btn" (click)="menuMobileAberto = false" routerLink="/">Home</button>
+      <button class="btn btn-menu" (click)="toggleMenuMobileEnderecos()">
+        Endereços
+      </button>
+
+      @if (menuMobileEnderecosAberto) {
+        <div class="menu-dropdown-mobile">
+          <button class="btn-menu-item" (click)="menuMobileAberto = false" routerLink="/cep/search">Buscar Endereços</button>
+        </div>
+      }
+    </nav>
+  }
 </header>
