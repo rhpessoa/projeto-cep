@@ -1,12 +1,12 @@
-$mobile-breakpoint: 768px;
+@use '../../../styles/variable' as vars;
 
 .header {
   display: flex;
   align-items: center;
   padding: 0 16px;
   height: 56px;
-  background-color: #670000;
-  color: black;
+  background-color: vars.$color-header-bg;
+  color: vars.$font-color-base;
   width: 100%;
   box-sizing: border-box;
   position: relative;
@@ -33,7 +33,7 @@ $mobile-breakpoint: 768px;
     gap: 8px;
     padding-right: 16px;
     box-sizing: border-box;
-    background-color: #670000;
+    background-color: vars.$color-header-bg;
 
     .menu-item {
       position: relative;
@@ -42,11 +42,11 @@ $mobile-breakpoint: 768px;
 
     .btn, .btn-menu {
       padding: 8px 16px;
-      background: #d7dbdd;
+      background: vars.$color-button-bg;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      color: black;
+      color: vars.$font-color-base;
       font-weight: 500;
       font-size: 16px;
       text-align: center;
@@ -57,7 +57,7 @@ $mobile-breakpoint: 768px;
       width: 100%;
 
       &:hover {
-        background-color: #bfc3c5;
+        background-color: vars.$color-button-bg-hover;
       }
     }
 
@@ -66,8 +66,8 @@ $mobile-breakpoint: 768px;
       top: 100%;
       left: 0;
       width: 100%;
-      background: #d7dbdd;
-      color: black;
+      background: vars.$color-button-bg;
+      color: vars.$font-color-base;
       border: 1px solid #ccc;
       margin-top: 4px;
       border-radius: 4px;
@@ -81,13 +81,13 @@ $mobile-breakpoint: 768px;
         padding: 8px 16px;
         background: none;
         border: none;
-        color: black;
+        color: vars.$font-color-base;
         font-weight: bold;
         border-radius: 0;
         cursor: pointer;
 
         &:hover {
-          background-color: #bfc3c5;
+          background-color: vars.$color-button-bg-hover;
         }
       }
     }
@@ -98,7 +98,7 @@ $mobile-breakpoint: 768px;
     font-size: 28px;
     background: none;
     border: none;
-    color: white;
+    color: vars.$font-color-base-second;
     cursor: pointer;
     order: 99;
   }
@@ -110,7 +110,7 @@ $mobile-breakpoint: 768px;
     top: 56px;
     right: 0;
     width: 200px;
-    background: #670000;
+    background: vars.$color-header-bg;
     padding: 8px;
     border-radius: 0 0 0 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -121,6 +121,7 @@ $mobile-breakpoint: 768px;
       width: 100%;
       text-align: left;
       font-weight: 700;
+      color: vars.$font-color-base;
     }
 
     .btn-menu {
@@ -129,7 +130,7 @@ $mobile-breakpoint: 768px;
 
     .menu-dropdown-mobile {
       margin-left: 16px;
-      background: #d7dbdd;
+      background: vars.$color-button-bg;
       border-radius: 4px;
 
       .btn-menu-item {
@@ -139,17 +140,17 @@ $mobile-breakpoint: 768px;
         border: none;
         cursor: pointer;
         font-weight: 700;
-        color: black;
+        color: vars.$font-color-base;
         text-align: left;
 
         &:hover {
-          background-color: #bfc3c5;
+          background-color: vars.$color-button-bg-hover;
         }
       }
     }
   }
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: vars.$mobile-breakpoint) {
     .spacer {
       width: auto;
       flex: 1;

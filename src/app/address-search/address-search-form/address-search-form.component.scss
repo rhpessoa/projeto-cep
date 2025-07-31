@@ -1,3 +1,5 @@
+@use '../../../styles/variable' as vars;
+
 .address-search-form {
   display: flex;
   justify-content: center;
@@ -32,15 +34,15 @@
 
 .cep-input:focus {
   outline: none; 
-  border-color: #007BFF; 
+  border-color: vars.$color-focus;
 }
 
 .cep-input.error {
-  border-color: #e74c3c; 
+  border-color: vars.$color-error;
 }
 
 .error-message {
-  color: #e74c3c;
+  color: vars.$color-error;
   font-size: 12px;
   margin-top: 4px;
   margin-left: 2px;
@@ -51,8 +53,8 @@
   padding: 10px 16px;
   font-size: 16px;
   font-weight: 500;
-  color: black;
-  background: #d7dbdd;
+  color: vars.$font-color-base;
+  background: vars.$color-button-bg;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -60,7 +62,7 @@
 }
 
 .search-button:hover {
-  background-color: #bfc3c5;
+  background-color: vars.$color-button-bg-hover;
 }
 
 .visually-hidden {
