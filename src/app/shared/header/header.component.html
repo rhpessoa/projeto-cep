@@ -4,7 +4,7 @@
 
   <nav role="navigation" aria-label="Menu principal" class="menu-desktop">
     <div class="menu-item home-item">
-      <button class="btn" routerLink="/">Home</button>
+      <button class="btn" (click)="menuAberto = false" routerLink="/">Home</button>
     </div>
 
     <div class="menu-item menu-item-dropdown">
@@ -19,7 +19,7 @@
 
       @if (menuAberto) {
         <div class="menu-dropdown">
-          <button class="btn-menu-item" routerLink="/cep/search">Buscar Endereços</button>
+          <button class="btn-menu-item" (click)="menuAberto = false" routerLink="/cep/search">Buscar Endereços</button>
         </div>
       }
     </div>
