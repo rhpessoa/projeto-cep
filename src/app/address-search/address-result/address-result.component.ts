@@ -3,6 +3,7 @@ import { CepData, CepService } from '../services/cep.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { SharedMaterialModule } from '../../shared/shared-material.module';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-address-result',
@@ -17,20 +18,29 @@ export class AddressResultComponent implements OnInit, OnDestroy {
 
   private localStorageKey = 'cepSearchHistory';
 
-  constructor(private cepService: CepService) {}
+  constructor(private cepService: CepService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     const savedData = localStorage.getItem(this.localStorageKey);
     if (savedData) {
       this.dataSource = JSON.parse(savedData);
     }
-
     this.subscription = this.cepService.cepData$.subscribe((data) => {
       if (data) {
-        const now = new Date();
-        const timestamp = now.toLocaleString();
-        this.dataSource = [{ ...data, timestamp }, ...this.dataSource];
-        localStorage.setItem(this.localStorageKey, JSON.stringify(this.dataSource));
+        const cepExist = this.dataSource.some(item => item.cep === data.cep);
+        if (!cepExist) {
+          const now = new Date();
+          const timestamp = now.toLocaleString();
+          this.dataSource = [{ ...data, timestamp }, ...this.dataSource];
+          localStorage.setItem(this.localStorageKey, JSON.stringify(this.dataSource));
+        } else {
+          
+         this.snackBar.open(`CEP ${data.cep} já está no histórico.`, 'Fechar', {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
+        }
       }
     });
   }

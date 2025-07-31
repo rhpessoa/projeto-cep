@@ -10,7 +10,6 @@ import { AddressResultComponent } from "../address-result/address-result.compone
 
 @Component({
   selector: 'app-address-search-form',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     NgxMaskDirective,
@@ -48,30 +47,44 @@ export class AddressSearchFormComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    this.submitted = true;
-    if (this.form.valid) {
-      const cepValue = this.form.value.cep.replace(/\D/g, '');
-      this.cepService.buscarCep(cepValue).subscribe({
-        next: (data) => {
-         this.cepService.emitirCepData(data);
-          this.mostrarResultado = true;  
-        },
-        error: (err) => {
-          console.error('Erro ao buscar CEP:', err);
-          this.snackBar.open('Erro ao buscar CEP. Por favor, tente novamente.', 'Fechar', {
-            duration: 4000,
-            horizontalPosition: 'right',
-            verticalPosition: 'top',
-        });
-        this.mostrarResultado = false;
-      }
-    });
-    } else {
-      this.form.markAllAsTouched();
-      this.mostrarResultado = false;
-    }
+  this.submitted = true;
+
+  if (this.form.invalid) {
+    this.form.markAllAsTouched();
+    this.mostrarResultado = false;
+    return;
   }
 
+  const cepValue = this.form.value.cep.replace(/\D/g, '');
+
+  this.cepService.buscarCep(cepValue).subscribe({
+    next: (data) => {
+      if (data && data.cep && data.cep.trim() !== '') {
+        this.cepService.emitirCepData(data);
+        this.mostrarResultado = true;
+        this.form.get('cep')?.setErrors(null);
+      } else {
+        this.mostrarResultado = false;
+        this.form.get('cep')?.setErrors({ invalidCep: true });
+
+        this.snackBar.open('CEP inválido. Por favor, verifique e tente novamente.', 'Fechar', {
+          duration: 4000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
+      }
+    },
+    error: (err) => {
+      console.error('Erro ao buscar CEP:', err);
+      this.mostrarResultado = false;
+      this.snackBar.open('Erro ao buscar CEP. Por favor, tente novamente.', 'Fechar', {
+        duration: 4000,
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+      });
+    }
+  });
+}
   get cep() {
     return this.form.get('cep');
   }
