@@ -15,3 +15,14 @@
 .mat-paginator {
   margin-top: 8px;
 }
+.text-right {
+  text-align: right;
+}
+address-result {
+  width: 100%;
+  overflow-x: auto;
+
+  .mat-table {
+    overflow: visible; // ou remova completamente essa regra
+  }
+}
