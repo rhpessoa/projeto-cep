@@ -2,9 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-   height: calc(100vh - 56px);
+  height: calc(100vh - 56px);
   text-align: center;
   padding: 16px;
+  box-sizing: border-box;
+  flex-direction: column; 
 }
 
 .welcome-section h1 {
@@ -16,4 +18,19 @@
 .subtitle {
   font-size: 1rem;
   color: #999;
+}
+
+@media (max-width: 768px) {
+  .welcome-section h1 {
+    font-size: 1.5rem; 
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 0.875rem; 
+  }
+
+  .home-container {
+    padding: 12px;
+  }
 }
